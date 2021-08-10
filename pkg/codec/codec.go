@@ -3,12 +3,12 @@ package codec
 import (
 	"time"
 
-	"github.com/pion/mediadevices/pkg/io/audio"
-	"github.com/pion/mediadevices/pkg/io/video"
-	"github.com/pion/mediadevices/pkg/prop"
 	"github.com/pion/rtp"
 	"github.com/pion/rtp/codecs"
 	"github.com/pion/webrtc/v3"
+	"github.com/trevor403/mediadevices/pkg/io/audio"
+	"github.com/trevor403/mediadevices/pkg/io/video"
+	"github.com/trevor403/mediadevices/pkg/prop"
 )
 
 // RTPCodec wraps webrtc.RTPCodec. RTPCodec might extend webrtc.RTPCodec in the future.

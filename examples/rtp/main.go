@@ -6,11 +6,11 @@ import (
 	"net"
 	"os"
 
-	"github.com/pion/mediadevices"
-	"github.com/pion/mediadevices/pkg/codec/x264"      // This is required to use H264 video encoder
-	_ "github.com/pion/mediadevices/pkg/driver/camera" // This is required to register camera adapter
-	"github.com/pion/mediadevices/pkg/frame"
-	"github.com/pion/mediadevices/pkg/prop"
+	"github.com/trevor403/mediadevices"
+	"github.com/trevor403/mediadevices/pkg/codec/x264"      // This is required to use H264 video encoder
+	_ "github.com/trevor403/mediadevices/pkg/driver/camera" // This is required to register camera adapter
+	"github.com/trevor403/mediadevices/pkg/frame"
+	"github.com/trevor403/mediadevices/pkg/prop"
 )
 
 const (

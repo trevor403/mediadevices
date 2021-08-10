@@ -7,6 +7,7 @@ ENV PATH=${OSX_CROSS_PATH}/target/bin:$PATH
 
 COPY init.sh /tmp/init.sh
 RUN bash /tmp/init.sh
+RUN apt-get install -y bash
 
 ENV CC=x86_64-apple-darwin14-clang \
     CXX=x86_64-apple-darwin14-clang++ \
@@ -18,6 +19,6 @@ ENV CC=x86_64-apple-darwin14-clang \
 COPY darwin-x64.cmake ${OSX_CROSS_PATH}/
 ENV CMAKE_TOOLCHAIN_FILE ${OSX_CROSS_PATH}/darwin-x64.cmake
 
-ARG IMAGE=lherman/cross-darwin-x64
+ARG IMAGE=osxcross
 ARG VERSION=latest
 ENV DEFAULT_DOCKCROSS_IMAGE ${IMAGE}:${VERSION}

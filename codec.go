@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/pion/mediadevices/pkg/codec"
-	"github.com/pion/mediadevices/pkg/io/audio"
-	"github.com/pion/mediadevices/pkg/io/video"
-	"github.com/pion/mediadevices/pkg/prop"
 	"github.com/pion/webrtc/v3"
+	"github.com/trevor403/mediadevices/pkg/codec"
+	"github.com/trevor403/mediadevices/pkg/io/audio"
+	"github.com/trevor403/mediadevices/pkg/io/video"
+	"github.com/trevor403/mediadevices/pkg/prop"
 )
 
 // CodecSelector is a container of video and audio encoder builders, which later will be used

@@ -3,10 +3,10 @@ package opus
 import (
 	"time"
 
-	"github.com/pion/mediadevices/pkg/codec"
-	"github.com/pion/mediadevices/pkg/io/audio"
-	"github.com/pion/mediadevices/pkg/prop"
-	"github.com/pion/mediadevices/pkg/wave/mixer"
+	"github.com/trevor403/mediadevices/pkg/codec"
+	"github.com/trevor403/mediadevices/pkg/io/audio"
+	"github.com/trevor403/mediadevices/pkg/prop"
+	"github.com/trevor403/mediadevices/pkg/wave/mixer"
 )
 
 // Latency is a type of OPUS codec frame duration.

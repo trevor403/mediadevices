@@ -7,10 +7,10 @@ import (
 	"math"
 	"time"
 
-	"github.com/pion/mediadevices/pkg/driver"
-	"github.com/pion/mediadevices/pkg/io/audio"
-	"github.com/pion/mediadevices/pkg/prop"
-	"github.com/pion/mediadevices/pkg/wave"
+	"github.com/trevor403/mediadevices/pkg/driver"
+	"github.com/trevor403/mediadevices/pkg/io/audio"
+	"github.com/trevor403/mediadevices/pkg/prop"
+	"github.com/trevor403/mediadevices/pkg/wave"
 )
 
 func init() {
