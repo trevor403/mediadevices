@@ -130,4 +130,6 @@ type BaseParams struct {
 
 	// Expected interval of the keyframes in frames.
 	KeyFrameInterval int
+
+	ForceFullColor bool
 }

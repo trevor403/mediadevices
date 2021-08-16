@@ -60,6 +60,29 @@ func imageToYCbCr(dst *image.YCbCr, src image.Image) {
 	}
 }
 
+// ToI444 converts r to a new reader that will output images in I444 format
+func ToI444(r Reader) Reader {
+	var yuvImg image.YCbCr
+	return ReaderFunc(func() (image.Image, func(), error) {
+		img, _, err := r.Read()
+		if err != nil {
+			return nil, func() {}, err
+		}
+
+		imageToYCbCr(&yuvImg, img)
+
+		// Covert pixel format to I444
+		switch yuvImg.SubsampleRatio {
+		case image.YCbCrSubsampleRatio444:
+		default:
+			return nil, func() {}, fmt.Errorf("unsupported pixel format: %s", yuvImg.SubsampleRatio)
+		}
+
+		yuvImg.SubsampleRatio = image.YCbCrSubsampleRatio444
+		return &yuvImg, func() {}, nil
+	})
+}
+
 // ToI420 converts r to a new reader that will output images in I420 format
 func ToI420(r Reader) Reader {
 	var yuvImg image.YCbCr

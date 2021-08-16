@@ -87,9 +87,17 @@ func newEncoder(r video.Reader, p prop.Media, params Params) (codec.ReadCloser, 
 		return nil, err
 	}
 
+	var reader video.Reader
+	if params.ForceFullColor {
+		reader = video.ToI444(r)
+		param.i_csp = C.X264_CSP_I444
+	} else {
+		reader = video.ToI420(r)
+	}
+
 	e := encoder{
 		engine: engine,
-		r:      video.ToI420(r),
+		r:      reader,
 	}
 	return &e, nil
 }
