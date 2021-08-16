@@ -11,11 +11,15 @@ type Params struct {
 	codec.BaseParams
 
 	// Faster preset has lower CPU usage but lower quality
-	Preset Preset
+	Preset  Preset
+	Profile Profile
 }
 
 // Preset represents a set of default configurations from libx264
 type Preset int
+
+// Profile represents a set of default configurations from libx264
+type Profile int
 
 const (
 	PresetUltrafast Preset = iota
@@ -28,6 +32,15 @@ const (
 	PresetSlower
 	PresetVeryslow
 	PresetPlacebo
+)
+
+const (
+	ProfileBaseline Profile = iota
+	ProfileMain
+	ProfileHigh
+	ProfileHigh10
+	ProfileHigh422
+	ProfileHigh444
 )
 
 // NewParams returns default x264 codec specific parameters.

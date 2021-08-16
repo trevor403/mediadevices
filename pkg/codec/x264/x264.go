@@ -90,7 +90,8 @@ func newEncoder(r video.Reader, p prop.Media, params Params) (codec.ReadCloser, 
 	var rc C.int
 	// cPreset will be freed in C.enc_new
 	cPreset := C.CString(fmt.Sprint(params.Preset))
-	engine := C.enc_new(param, cPreset, &rc)
+	profile := C.int(params.Profile)
+	engine := C.enc_new(param, cPreset, profile, &rc)
 	if err := errFromC(rc); err != nil {
 		return nil, err
 	}

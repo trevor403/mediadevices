@@ -20,7 +20,7 @@ typedef struct Encoder {
   x264_param_t param;
 } Encoder;
 
-Encoder *enc_new(x264_param_t param, char *preset, int *rc) {
+Encoder *enc_new(x264_param_t param, char *preset, int profile, int *rc) {
   Encoder *e = (Encoder *)malloc(sizeof(Encoder));
 
   if (x264_param_default_preset(&e->param, preset, "zerolatency") < 0) {
@@ -47,7 +47,7 @@ Encoder *enc_new(x264_param_t param, char *preset, int *rc) {
   e->param.b_repeat_headers = 1;
   e->param.b_annexb = 1;
 
-  if (x264_param_apply_profile(&e->param, "high") < 0) {
+  if (x264_param_apply_profile(&e->param, x264_profile_names[profile]) < 0) {
     *rc = ERR_APPLY_PROFILE;
     goto fail;
   }
