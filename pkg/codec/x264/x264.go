@@ -79,20 +79,20 @@ func newEncoder(r video.Reader, p prop.Media, params Params) (codec.ReadCloser, 
 	param.rc.i_vbv_max_bitrate = param.rc.i_bitrate
 	param.rc.i_vbv_buffer_size = param.rc.i_vbv_max_bitrate * 2
 
-	var rc C.int
-	// cPreset will be freed in C.enc_new
-	cPreset := C.CString(fmt.Sprint(params.Preset))
-	engine := C.enc_new(param, cPreset, &rc)
-	if err := errFromC(rc); err != nil {
-		return nil, err
-	}
-
 	var reader video.Reader
 	if params.ForceFullColor {
 		reader = video.ToI444(r)
 		param.i_csp = C.X264_CSP_I444
 	} else {
 		reader = video.ToI420(r)
+	}
+
+	var rc C.int
+	// cPreset will be freed in C.enc_new
+	cPreset := C.CString(fmt.Sprint(params.Preset))
+	engine := C.enc_new(param, cPreset, &rc)
+	if err := errFromC(rc); err != nil {
+		return nil, err
 	}
 
 	e := encoder{
